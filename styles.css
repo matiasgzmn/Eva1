@@ -2,7 +2,7 @@
     --color-primario: #1e88e5;
     --color-secundario: #1565c0;
     --color-texto: #333333;
-    --color-fondo: #f5f7fa;
+    --color-fondo: #f4f6f8;
 }
 
 * {
@@ -18,28 +18,26 @@ body {
     line-height: 1.6;
 }
 
-.contenedor {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-
 header {
     background-color: var(--color-primario);
     color: white;
-    padding: 20px 0;
+    padding: 20px;
 }
 
-header h1 {
-    text-align: center;
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
     margin-bottom: 15px;
 }
 
 nav ul {
+    list-style: none;
     display: flex;
     justify-content: center;
     gap: 25px;
-    list-style: none;
 }
 
 nav a {
@@ -55,7 +53,7 @@ nav a:hover {
 .hero {
     text-align: center;
     padding: 80px 20px;
-    background-color: white;
+    background: white;
 }
 
 .hero h2 {
@@ -64,13 +62,14 @@ nav a:hover {
 }
 
 section {
-    padding: 50px 10%;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 section h2 {
     text-align: center;
     margin-bottom: 30px;
-    color: var(--color-secundario);
 }
 
 .grid-servicios {
@@ -80,16 +79,16 @@ section h2 {
 }
 
 .tarjeta {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .tarjeta h3 {
+    color: var(--color-secundario);
     margin-bottom: 10px;
-    color: var(--color-primario);
 }
 
 #nosotros p {
@@ -101,23 +100,33 @@ section h2 {
 form {
     max-width: 500px;
     margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 input,
 select {
+    width: 100%;
     padding: 10px;
-    border: 1px solid #cccccc;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
 button {
+    width: 100%;
+    padding: 12px;
     background-color: var(--color-primario);
     color: white;
     border: none;
-    padding: 12px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -127,9 +136,9 @@ button:hover {
 }
 
 footer {
-    background-color: #222;
-    color: white;
     text-align: center;
+    background-color: var(--color-primario);
+    color: white;
     padding: 20px;
     margin-top: 40px;
 }
