@@ -1,9 +1,22 @@
+/* ========================================
+   VARIABLES CSS - COLORES Y ESTILOS GLOBALES
+   ======================================== */
+
 :root {
-    --color-primario: #1e88e5;
-    --color-secundario: #1565c0;
-    --color-texto: #333333;
-    --color-fondo: #f4f6f8;
+    --color-primario: #2c5f2d;
+    --color-secundario: #f97316;
+    --color-texto: #1a1a1a;
+    --color-fondo: #ffffff;
+    --color-fondo-claro: #f5f5f5;
+    --color-borde: #e0e0e0;
+    --espaciado-base: 20px;
+    --espaciado-grande: 40px;
+    --radio-borde: 8px;
 }
+
+/* ========================================
+   ESTILOS GENERALES
+   ======================================== */
 
 * {
     margin: 0;
@@ -11,145 +24,394 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--color-fondo);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--color-texto);
+    background-color: var(--color-fondo);
     line-height: 1.6;
 }
 
-header {
-    background-color: var(--color-primario);
-    color: white;
-    padding: 20px;
-}
+/* ========================================
+   CONTENEDOR
+   ======================================== */
 
 .contenedor {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 var(--espaciado-base);
+}
+
+/* ========================================
+   HEADER Y NAVEGACIÓN
+   ======================================== */
+
+header {
+    background-color: var(--color-primario);
+    padding: var(--espaciado-base) 0;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+header .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--espaciado-base);
 }
 
 h1 {
-    margin-bottom: 15px;
+    color: var(--color-fondo);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
+/* Navegación con Flexbox - OBLIGATORIO */
 nav ul {
-    list-style: none;
     display: flex;
-    justify-content: center;
-    gap: 25px;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 nav a {
-    color: white;
+    color: var(--color-fondo);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: var(--color-secundario);
+    border-bottom: 2px solid var(--color-secundario);
 }
 
+/* ========================================
+   SECCIÓN HERO
+   ======================================== */
+
 .hero {
+    background: linear-gradient(135deg, var(--color-primario) 0%, rgba(44, 95, 45, 0.9) 100%);
+    color: var(--color-fondo);
+    padding: 100px 0;
     text-align: center;
-    padding: 80px 20px;
-    background: white;
 }
 
 .hero h2 {
-    margin-bottom: 15px;
-    color: var(--color-primario);
+    font-size: 42px;
+    margin-bottom: var(--espaciado-base);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.95;
+}
+
+/* ========================================
+   MAIN Y SECTIONS GENERALES
+   ======================================== */
+
+main {
+    min-height: calc(100vh - 150px);
 }
 
 section {
-    padding: 50px 20px;
-    max-width: 1200px;
-    margin: auto;
+    padding: var(--espaciado-grande) 0;
 }
 
 section h2 {
+    font-size: 32px;
+    color: var(--color-primario);
+    margin-bottom: var(--espaciado-grande);
     text-align: center;
-    margin-bottom: 30px;
+    font-weight: 700;
 }
 
+/* ========================================
+   SECCIÓN SERVICIOS - GRID OBLIGATORIO
+   ======================================== */
+
+#servicios {
+    background-color: var(--color-fondo-claro);
+}
+
+/* Grid: 3 columnas para las tarjetas - OBLIGATORIO */
 .grid-servicios {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: var(--espaciado-grande);
+    margin-top: var(--espaciado-grande);
 }
 
 .tarjeta {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-fondo);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-borde);
+    padding: var(--espaciado-grande);
     text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta:hover {
+    box-shadow: 0 8px 16px rgba(44, 95, 45, 0.15);
+    transform: translateY(-5px);
+    border-color: var(--color-primario);
 }
 
 .tarjeta h3 {
-    color: var(--color-secundario);
-    margin-bottom: 10px;
+    color: var(--color-primario);
+    font-size: 20px;
+    margin-bottom: var(--espaciado-base);
+    font-weight: 600;
+}
+
+.tarjeta p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   SECCIÓN NOSOTROS
+   ======================================== */
+
+#nosotros {
+    background-color: var(--color-fondo);
 }
 
 #nosotros p {
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto;
     text-align: center;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
 }
 
-form {
+/* ========================================
+   SECCIÓN CONTACTO - FORMULARIO
+   ======================================== */
+
+#contacto {
+    background-color: var(--color-fondo-claro);
+}
+
+.formulario {
     max-width: 500px;
-    margin: auto;
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    background-color: var(--color-fondo);
+    padding: var(--espaciado-grande);
+    border-radius: var(--radio-borde);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.grupo-formulario {
+    margin-bottom: var(--espaciado-base);
 }
 
 label {
     display: block;
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--color-primario);
+    font-size: 14px;
 }
 
 input,
 select {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    width: 100%;
     padding: 12px;
-    background-color: var(--color-primario);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border: 1px solid var(--color-borde);
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-button:hover {
-    background-color: var(--color-secundario);
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.1);
 }
+
+input::placeholder {
+    color: #999;
+}
+
+.boton-enviar {
+    width: 100%;
+    background-color: var(--color-secundario);
+    color: var(--color-fondo);
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: var(--espaciado-base);
+}
+
+.boton-enviar:hover {
+    background-color: #e85d0a;
+    transform: scale(1.02);
+}
+
+.boton-enviar:active {
+    transform: scale(0.98);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
 
 footer {
-    text-align: center;
     background-color: var(--color-primario);
-    color: white;
-    padding: 20px;
-    margin-top: 40px;
+    color: var(--color-fondo);
+    text-align: center;
+    padding: var(--espaciado-grande) 0;
+    margin-top: var(--espaciado-grande);
 }
 
+footer p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* ========================================
+   RESPONSIVE - TABLET (768px y menos)
+   ======================================== */
+
 @media (max-width: 768px) {
+    /* Header responsive */
+    header .contenedor {
+        flex-direction: column;
+        gap: var(--espaciado-base);
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    /* Nav responsive */
+    nav ul {
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    /* Hero responsive */
+    .hero {
+        padding: 80px 0;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    /* Grid: Se adapta a 2 columnas */
     .grid-servicios {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--espaciado-base);
+    }
+
+    /* Section headings */
+    section h2 {
+        font-size: 24px;
+    }
+
+    /* Formulario responsive */
+    .formulario {
+        padding: var(--espaciado-base);
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE (480px y menos)
+   ======================================== */
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    section {
+        padding: var(--espaciado-base) 0;
+    }
+
+    section h2 {
+        font-size: 20px;
     }
 
     nav ul {
-        flex-direction: column;
-        align-items: center;
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    /* Grid: 1 columna en mobile */
+    .grid-servicios {
+        grid-template-columns: 1fr;
+        gap: var(--espaciado-base);
+    }
+
+    .tarjeta {
+        padding: var(--espaciado-base);
+    }
+
+    .tarjeta h3 {
+        font-size: 18px;
+    }
+
+    .tarjeta p {
+        font-size: 13px;
+    }
+
+    #nosotros p {
+        font-size: 14px;
+    }
+
+    .formulario {
+        padding: var(--espaciado-base);
+    }
+
+    .boton-enviar {
+        padding: 10px;
+        font-size: 14px;
     }
 }
